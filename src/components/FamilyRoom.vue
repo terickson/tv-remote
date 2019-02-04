@@ -19,7 +19,7 @@
       <b-col align="left">
         Volume
       </b-col>
-      <b-col align="right">
+      <b-col align="right" v-if="input=='TV'">
         Channels
       </b-col>
     </b-row>
@@ -33,42 +33,50 @@
     </b-row>
     <b-row>
       <b-col align="left"  style="padding-top:10px">
-        <b-button><v-icon name="arrow-up"/></b-button>
+        <b-button @click="updateVolume(1)"><v-icon name="arrow-up"/></b-button>
       </b-col>
-      <b-col align="right">
-        <b-button><v-icon name="arrow-up"/></b-button>
+      <b-col align="right" v-if="input=='TV'">
+        <b-button @click="modifyTv('ChannelUp', null)"><v-icon name="arrow-up"/></b-button>
       </b-col>
     </b-row>
     <b-row style="padding-top:15px">
       <b-col align="left">
-        <b-button><v-icon name="arrow-down"/></b-button>
+        <b-button @click="updateVolume(-1)"><v-icon name="arrow-down"/></b-button>
       </b-col>
-      <b-col align="right">
-        <b-button><v-icon name="arrow-down"/></b-button>
+      <b-col align="right" v-if="input=='TV'">
+        <b-button @click="modifyTv('ChannelDown', null)"><v-icon name="arrow-down"/></b-button>
       </b-col>
     </b-row>
 
-  <b-row style="padding-top:25px">
+    <b-row style="padding-top:50px" v-if="input=='Roku'">
+      <b-col align="left">
+        <b-button @click="modifyRoku('back', null)"><v-icon name="arrow-left"/></b-button>
+      </b-col>
+      <b-col align="right">
+        <b-button @click="modifyRoku('home', null)"><v-icon name="home"/></b-button>
+      </b-col>
+    </b-row>
+  <b-row style="padding-top:10px" v-if="input=='Roku'">
     <b-col align="middle">
-      <b-button><v-icon name="arrow-up"/></b-button>
+      <b-button @click="modifyRoku('up', '1')"><v-icon name="arrow-up"/></b-button>
     </b-col>
   </b-row>
-  <b-row style="padding-top:20px">
+  <b-row style="padding-top:20px" v-if="input=='Roku'">
     <b-col align="middle">
       <span>
-        <b-button><v-icon name="arrow-left"/></b-button>
+        <b-button @click="modifyRoku('left', '1')"><v-icon name="arrow-left"/></b-button>
       </span>
       <span style="padding-right:20px; padding-left:20px">
-        <b-button>Enter</b-button>
+        <b-button @click="modifyRoku('select', null)">Enter</b-button>
       </span>
       <span>
-        <b-button><v-icon name="arrow-right"/></b-button>
+        <b-button @click="modifyRoku('right', '1')"><v-icon name="arrow-right"/></b-button>
       </span>
     </b-col>
   </b-row>
-  <b-row style="padding-top:20px">
+  <b-row style="padding-top:20px" v-if="input=='Roku'">
     <b-col align="middle">
-      <b-button><v-icon name="arrow-down"/></b-button>
+      <b-button @click="modifyRoku('down', '1')"><v-icon name="arrow-down"/></b-button>
     </b-col>
   </b-row>
 
@@ -87,6 +95,7 @@ export default
   {
     return {
       volInterval: 5,
+      volume: -30,
       volOptions: [1,5,10],
       input: null,
       inputs: [{display:"Off", value: null},{display:"TV", value: "TV"},{display:"Roku", value: "Roku"},{display:"PS3", value: "PS3"}, {display:"PS4", value: "PS4"},{display:"WII U", value: "WII U"},{display:"Retro PI", value: "Retro PI"},{display:"Xbox", value: "Xbox"},{display:"Switch", value: "Switch"}],
@@ -102,8 +111,20 @@ export default
       }
       axios.post(host, body);
     },
+    updateVolume(value){
+      this.volume = this.volume  + (value  * this.volInterval);
+      let receiverPayload = {volume: this.volume};
+      axios.put(frReceiverActionHost, receiverPayload);
+    },
+    modifyTv(command, value){
+      this.executeAction(frTVActionHost, command, value);
+    },
+    modifyRoku(command, value){
+      this.executeAction(frRokuActionHost, command, value);
+    },
     changeInput(inputType){
-      let receiverPayload = {on:true, volume: -30};
+      this.volume = -30;
+      let receiverPayload = {on:true, volume: this.volume};
       let that = this;
 
       if(!inputType){
