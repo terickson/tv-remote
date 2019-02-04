@@ -6,7 +6,7 @@ After=multi-user.target
 Type=idle
 User=terickson
 WorkingDirectory=/usr/apps/tv-remote
-ExecStart=/usr/apps/tv-remote/node_modules/.bin/serve --single --port=3001 /usr/apps/tv-remote/dist
+ExecStart=/usr/apps/tv-remote/node_modules/.bin/serve --single -l 3001 /usr/apps/tv-remote/dist
 Restart=always
 TimeoutStartSec=10
 RestartSec=10
