@@ -79,6 +79,19 @@
       <b-button @click="modifyRoku('down', '1')"><v-icon name="arrow-down"/></b-button>
     </b-col>
   </b-row>
+  <b-row style="padding-top:30px" v-if="input=='Roku'">
+    <b-col align="middle">
+      <span>
+        <b-button @click="modifyRoku('reverse', null)"><v-icon name="backward"/></b-button>
+      </span>
+      <span style="padding-right:20px; padding-left:20px">
+        <b-button @click="modifyRoku('play', null)"><v-icon name="play"/></b-button>
+      </span>
+      <span>
+        <b-button @click="modifyRoku('forward', null)"><v-icon name="forward"/></b-button>
+      </span>
+    </b-col>
+  </b-row>
 
 </b-container>
 </template>
