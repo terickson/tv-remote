@@ -111,7 +111,7 @@ export default
       volume: -30,
       volOptions: [1,5,10],
       input: null,
-      inputs: [{display:"Off", value: null},{display:"TV", value: "TV"},{display:"Roku", value: "Roku"},{display:"PS3", value: "PS3"}, {display:"PS4", value: "PS4"},{display:"WII U", value: "WII U"},{display:"Retro PI", value: "Retro PI"},{display:"Xbox", value: "Xbox"},{display:"Switch", value: "Switch"}],
+      inputs: [{display:"Off", value: null},{display:"TV", value: "TV"},{display:"Roku", value: "Roku"},{display:"PS3", value: "PS3"}, {display:"PS4", value: "PS4"}, {display:"PS5", value: "PS5"},{display:"WII U", value: "WII U"},{display:"Retro PI", value: "Retro PI"},{display:"Xbox", value: "Xbox"},{display:"Switch", value: "Switch"}],
       qLaunches: [{display:"Netflix", value: "Roku"},{display:"Prime", value: "Roku"},{display:"Plex", value: "Roku"},{display:"Crunchy Roll", value: "Roku"}, {display: "DC Universe", value: "Roku"},{display:"Daily Burn", value: "Roku"}]
     }
   },
