@@ -99,8 +99,8 @@
 <script>
 import axios from 'axios';
 let frTVActionHost = "http://192.168.72.20:8080/tv/actions";
-let frRokuActionHost = "http://192.168.72.110:8080/systems/family-room/actions";
-let frReceiverActionHost = "http://192.168.72.110:8081/receiver/";
+let frRokuActionHost = "http://192.168.72.91:8080/systems/family-room/actions";
+let frReceiverActionHost = "http://192.168.72.91:8081/receiver/";
 export default
 {
   name: 'FamilyRoom',
