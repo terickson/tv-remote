@@ -173,6 +173,12 @@ export default
       		this.executeAction(frTVActionHost, "PowerOn", null);
       		setTimeout(()=>{that.executeAction(frTVActionHost, "HDMI1", null);}, 500);
       		break;
+		case "PS5":
+      		receiverPayload['input'] = 'AV1';
+      		axios.put(frReceiverActionHost, receiverPayload);
+      		this.executeAction(frTVActionHost, "PowerOn", null);
+      	  setTimeout(()=>{that.executeAction(frTVActionHost, "HDMI3", null);}, 500);
+      		break;
       	case "WII U":
       		receiverPayload['input'] = 'HDMI3';
       		axios.put(frReceiverActionHost, receiverPayload);
@@ -194,20 +200,6 @@ export default
       	case "Switch":
       		receiverPayload['input'] = 'V-AUX';
       		axios.put(frReceiverActionHost, receiverPayload);
-      		this.executeAction(frTVActionHost, "PowerOn", null);
-      		setTimeout(()=>{that.executeAction(frTVActionHost, "HDMI1", null);}, 500);
-      		break;
-      	case "DC Universe":
-      		receiverPayload['input'] = 'HDMI1';
-      		axios.put(frReceiverActionHost, receiverPayload);
-      		this.executeAction(frRokuActionHost, "input", "DC Universe");
-      		this.executeAction(frTVActionHost, "PowerOn", null);
-      		setTimeout(()=>{that.executeAction(frTVActionHost, "HDMI1", null);}, 500);
-      		break;
-      	case "Daily Burn":
-      		receiverPayload['input'] = 'HDMI1';
-      		axios.put(frReceiverActionHost, receiverPayload);
-      		this.executeAction(frRokuActionHost, "input", "Daily Burn");
       		this.executeAction(frTVActionHost, "PowerOn", null);
       		setTimeout(()=>{that.executeAction(frTVActionHost, "HDMI1", null);}, 500);
       		break;
