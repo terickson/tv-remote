@@ -91,7 +91,7 @@
 <script>
 import axios from 'axios';
 var mbTVActionHost = "http://192.168.72.25:8080/tv/actions"
-var mbRokuActionHost = "http://192.168.72.110:8080/systems/master-bedroom/actions"
+var mbRokuActionHost = "http://192.168.72.91:8080/systems/master-bedroom/actions"
 export default
 {
   name: 'MasterBedroom',
