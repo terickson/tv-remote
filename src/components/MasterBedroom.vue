@@ -140,6 +140,10 @@ export default
       		this.executeAction(mbTVActionHost, "PowerOn", null);
       		setTimeout(()=>{that.executeAction(mbTVActionHost, "InputComponent1", null);}, 500);
       		break;
+        case "SWITCH":
+      		this.executeAction(mbTVActionHost, "PowerOn", null);
+      		setTimeout(()=>{that.executeAction(mbTVActionHost, "HDMI2", null);}, 500);
+      		break;
       	case "Roku":
       		this.executeAction(mbTVActionHost, "PowerOn", null);
       		setTimeout(()=>{that.executeAction(mbTVActionHost, "HDMI1", null);}, 500);
