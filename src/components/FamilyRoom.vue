@@ -48,6 +48,60 @@
       </b-col>
     </b-row>
 
+    <b-row style="padding-top:50px" v-if="input=='TV'">
+      <b-col align="left">
+        <b-button @click="modifyTv('Back', null)"><v-icon name="arrow-left"/></b-button>
+      </b-col>
+      <b-col align="right">
+        <b-button @click="modifyTv('Menu', null)"><v-icon name="compass"/></b-button>
+      </b-col>
+    </b-row>
+  <b-row style="padding-top:10px" v-if="input=='TV'">
+    <b-col align="middle">
+      <b-button @click="modifyTv('Up', null)"><v-icon name="arrow-up"/></b-button>
+    </b-col>
+  </b-row>
+  <b-row style="padding-top:20px" v-if="input=='TV'">
+    <b-col align="middle">
+      <span>
+        <b-button @click="modifyTv('Left', null)"><v-icon name="arrow-left"/></b-button>
+      </span>
+      <span style="padding-right:20px; padding-left:20px">
+        <b-button @click="modifyTv('Enter', null)">Enter</b-button>
+      </span>
+      <span>
+        <b-button @click="modifyTv('Right', null)"><v-icon name="arrow-right"/></b-button>
+      </span>
+    </b-col>
+  </b-row>
+  <b-row style="padding-top:20px" v-if="input=='TV'">
+    <b-col align="middle">
+      <b-button @click="modifyTv('Down', null)"><v-icon name="arrow-down"/></b-button>
+    </b-col>
+  </b-row>
+    <b-row style="padding-top:50px" v-if="input=='TV'">
+      <b-col align="left">
+		<b-button @click="modifyTv('Exit', null)"><v-icon name="times-circle"/></b-button>
+      </b-col>
+      <b-col align="right">
+        <b-button @click="modifyTv('Smart', null)"><v-icon name="home"/></b-button>
+      </b-col>
+    </b-row>
+  <b-row style="padding-top:30px" v-if="input=='TV'">
+    <b-col align="middle">
+      <span>
+        <b-button @click="modifyTv('Rewind', null)"><v-icon name="backward"/></b-button>
+      </span>
+      <span style="padding-right:20px; padding-left:20px">
+        <b-button @click="modifyTv('Play', null)"><v-icon name="play"/></b-button>
+      </span>
+      <span>
+        <b-button @click="modifyTv('FastForward', null)"><v-icon name="forward"/></b-button>
+      </span>
+    </b-col>
+  </b-row>
+
+
     <b-row style="padding-top:50px" v-if="input=='Roku'">
       <b-col align="left">
         <b-button @click="modifyRoku('back', null)"><v-icon name="arrow-left"/></b-button>
