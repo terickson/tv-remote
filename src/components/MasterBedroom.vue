@@ -91,7 +91,7 @@
 <script>
 import axios from 'axios';
 var mbTVActionHost = "http://192.168.72.25:8080/tv/actions"
-var mbRokuActionHost = "http://192.168.72.110:8080/systems/master-bedroom/actions"
+var mbRokuActionHost = "http://192.168.72.91:8080/systems/master-bedroom/actions"
 export default
 {
   name: 'MasterBedroom',
@@ -99,7 +99,7 @@ export default
   {
     return {
       input: null,
-      inputs: [{display:"Off", value: null},{display:"TV", value: "TV"},{display:"Roku", value: "Roku"},{display:"PS2", value: "PS2"},{display:"WII", value: "WII"}],
+      inputs: [{display:"Off", value: null},{display:"TV", value: "TV"},{display:"Roku", value: "Roku"},{display:"PS2", value: "PS2"},{display:"WII", value: "WII"},{display:"Switch", value: "SWITCH"}],
       qLaunches: [{display:"Netflix", value: "Roku"},{display:"Prime", value: "Roku"},{display:"Plex", value: "Roku"},{display:"Crunchy Roll", value: "Roku"}, {display: "DC Universe", value: "Roku"},{display:"Daily Burn", value: "Roku"}]
     }
   },
@@ -139,6 +139,10 @@ export default
       	case "WII":
       		this.executeAction(mbTVActionHost, "PowerOn", null);
       		setTimeout(()=>{that.executeAction(mbTVActionHost, "InputComponent1", null);}, 500);
+      		break;
+        case "SWITCH":
+      		this.executeAction(mbTVActionHost, "PowerOn", null);
+      		setTimeout(()=>{that.executeAction(mbTVActionHost, "HDMI2", null);}, 500);
       		break;
       	case "Roku":
       		this.executeAction(mbTVActionHost, "PowerOn", null);

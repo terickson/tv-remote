@@ -191,13 +191,13 @@ export default
       		this.executeAction(frTVActionHost, "PowerOn", null);
       		setTimeout(()=>{that.executeAction(frTVActionHost, "HDMI1", null);}, 500);
       		break;
-      	case "Xbox":
+      	case "Switch":
       		receiverPayload['input'] = 'HDMI5';
       		axios.put(frReceiverActionHost, receiverPayload);
       		this.executeAction(frTVActionHost, "PowerOn", null);
       		setTimeout(()=>{that.executeAction(frTVActionHost, "HDMI1", null);}, 500);
       		break;
-      	case "Switch":
+      	case "Xbox":
       		receiverPayload['input'] = 'V-AUX';
       		axios.put(frReceiverActionHost, receiverPayload);
       		this.executeAction(frTVActionHost, "PowerOn", null);
