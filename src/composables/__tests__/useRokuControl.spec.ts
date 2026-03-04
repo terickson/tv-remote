@@ -5,7 +5,7 @@ import { useRokuControl } from '../useRokuControl'
 vi.mock('axios')
 
 describe('useRokuControl', () => {
-  const HOST = 'http://192.168.72.91:8080'
+  const HOST = 'http://192.168.72.222:8080'
   const SYSTEM_PATH = '/systems/family-room/actions'
   let roku: ReturnType<typeof useRokuControl>
 

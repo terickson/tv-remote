@@ -15,8 +15,8 @@ describe('useVolumeControl', () => {
       id: 'family-room',
       name: 'Family Room Remote',
       tvHost: 'http://192.168.72.20:8080',
-      rokuHost: 'http://192.168.72.91:8080',
-      receiverHost: 'http://192.168.72.91:8081',
+      rokuHost: 'http://192.168.72.222:8080',
+      receiverHost: 'http://192.168.72.222:8081',
       inputs: [],
       quickLaunches: [],
       volume: { type: 'receiver', defaultVolume: -30, intervals: [1, 5, 10] },
@@ -32,14 +32,14 @@ describe('useVolumeControl', () => {
       const ctrl = useVolumeControl(room)
       await ctrl.volumeUp()
       expect(ctrl.volume.value).toBe(-25)
-      expect(axios.put).toHaveBeenCalledWith('http://192.168.72.91:8081/receiver/', { volume: -25 })
+      expect(axios.put).toHaveBeenCalledWith('http://192.168.72.222:8081/receiver/', { volume: -25 })
     })
 
     it('volumeDown decreases volume by interval and sends PUT', async () => {
       const ctrl = useVolumeControl(room)
       await ctrl.volumeDown()
       expect(ctrl.volume.value).toBe(-35)
-      expect(axios.put).toHaveBeenCalledWith('http://192.168.72.91:8081/receiver/', { volume: -35 })
+      expect(axios.put).toHaveBeenCalledWith('http://192.168.72.222:8081/receiver/', { volume: -35 })
     })
 
     it('respects changed interval', async () => {
@@ -47,7 +47,7 @@ describe('useVolumeControl', () => {
       ctrl.interval.value = 10
       await ctrl.volumeUp()
       expect(ctrl.volume.value).toBe(-20)
-      expect(axios.put).toHaveBeenCalledWith('http://192.168.72.91:8081/receiver/', { volume: -20 })
+      expect(axios.put).toHaveBeenCalledWith('http://192.168.72.222:8081/receiver/', { volume: -20 })
     })
 
     it('resetVolume resets to default', () => {
@@ -63,7 +63,7 @@ describe('useVolumeControl', () => {
       id: 'master-bedroom',
       name: 'Master Bedroom Remote',
       tvHost: 'http://192.168.72.25:8080',
-      rokuHost: 'http://192.168.72.91:8080',
+      rokuHost: 'http://192.168.72.222:8080',
       inputs: [],
       quickLaunches: [],
       volume: { type: 'tv', defaultVolume: 0 },

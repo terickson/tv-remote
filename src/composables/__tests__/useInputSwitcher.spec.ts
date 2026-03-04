@@ -15,8 +15,8 @@ describe('useInputSwitcher', () => {
     id: 'family-room',
     name: 'Family Room Remote',
     tvHost: 'http://192.168.72.20:8080',
-    rokuHost: 'http://192.168.72.91:8080',
-    receiverHost: 'http://192.168.72.91:8081',
+    rokuHost: 'http://192.168.72.222:8080',
+    receiverHost: 'http://192.168.72.222:8081',
     inputs: [
       { display: 'Off', value: null },
       { display: 'TV', value: 'TV', receiverInput: 'AV1', tvInput: 'InputTV' },
@@ -40,7 +40,7 @@ describe('useInputSwitcher', () => {
     id: 'master-bedroom',
     name: 'Master Bedroom Remote',
     tvHost: 'http://192.168.72.25:8080',
-    rokuHost: 'http://192.168.72.91:8080',
+    rokuHost: 'http://192.168.72.222:8080',
     inputs: [
       { display: 'Off', value: null },
       { display: 'TV', value: 'TV', tvInput: 'InputTV' },
@@ -66,7 +66,7 @@ describe('useInputSwitcher', () => {
         { command: 'PowerOff' }
       )
       expect(axios.put).toHaveBeenCalledWith(
-        'http://192.168.72.91:8081/receiver/',
+        'http://192.168.72.222:8081/receiver/',
         { on: false, volume: -30 }
       )
     })
@@ -80,7 +80,7 @@ describe('useInputSwitcher', () => {
       await changeInput('TV')
 
       expect(axios.put).toHaveBeenCalledWith(
-        'http://192.168.72.91:8081/receiver/',
+        'http://192.168.72.222:8081/receiver/',
         { on: true, volume: -30, input: 'AV1' }
       )
       expect(axios.post).toHaveBeenCalledWith(
@@ -104,7 +104,7 @@ describe('useInputSwitcher', () => {
       await changeInput('PS3')
 
       expect(axios.put).toHaveBeenCalledWith(
-        'http://192.168.72.91:8081/receiver/',
+        'http://192.168.72.222:8081/receiver/',
         { on: true, volume: -30, input: 'HDMI4' }
       )
       vi.advanceTimersByTime(500)
@@ -123,7 +123,7 @@ describe('useInputSwitcher', () => {
       await changeInput('PS5')
 
       expect(axios.put).toHaveBeenCalledWith(
-        'http://192.168.72.91:8081/receiver/',
+        'http://192.168.72.222:8081/receiver/',
         { on: true, volume: -30, input: 'AV1' }
       )
       vi.advanceTimersByTime(500)
@@ -142,7 +142,7 @@ describe('useInputSwitcher', () => {
       await changeInput('Retro PI')
 
       expect(axios.put).toHaveBeenCalledWith(
-        'http://192.168.72.91:8081/receiver/',
+        'http://192.168.72.222:8081/receiver/',
         { on: true, volume: -30, input: 'AV1' }
       )
       vi.advanceTimersByTime(500)
@@ -161,7 +161,7 @@ describe('useInputSwitcher', () => {
       await changeInput('Xbox')
 
       expect(axios.put).toHaveBeenCalledWith(
-        'http://192.168.72.91:8081/receiver/',
+        'http://192.168.72.222:8081/receiver/',
         { on: true, volume: -30, input: 'V-AUX' }
       )
       vi.advanceTimersByTime(500)
@@ -180,7 +180,7 @@ describe('useInputSwitcher', () => {
       await changeInput('Switch')
 
       expect(axios.put).toHaveBeenCalledWith(
-        'http://192.168.72.91:8081/receiver/',
+        'http://192.168.72.222:8081/receiver/',
         { on: true, volume: -30, input: 'HDMI5' }
       )
       vi.advanceTimersByTime(500)
@@ -199,11 +199,11 @@ describe('useInputSwitcher', () => {
       await quickLaunch({ display: 'Netflix', rokuAppName: 'Netflix' })
 
       expect(axios.put).toHaveBeenCalledWith(
-        'http://192.168.72.91:8081/receiver/',
+        'http://192.168.72.222:8081/receiver/',
         { on: true, volume: -30, input: 'HDMI1' }
       )
       expect(axios.post).toHaveBeenCalledWith(
-        'http://192.168.72.91:8080/systems/family-room/actions',
+        'http://192.168.72.222:8080/systems/family-room/actions',
         { command: 'input', value: 'Netflix' }
       )
       expect(axios.post).toHaveBeenCalledWith(
@@ -310,7 +310,7 @@ describe('useInputSwitcher', () => {
       await quickLaunch({ display: 'Netflix', rokuAppName: 'Netflix' })
 
       expect(axios.post).toHaveBeenCalledWith(
-        'http://192.168.72.91:8080/systems/master-bedroom/actions',
+        'http://192.168.72.222:8080/systems/master-bedroom/actions',
         { command: 'input', value: 'Netflix' }
       )
       expect(axios.post).toHaveBeenCalledWith(

@@ -69,10 +69,10 @@ All API endpoints are configured via environment variables (see `.env.example`):
 | Variable | Description | Default |
 |----------|-------------|---------|
 | `VITE_FR_TV_HOST` | Family Room TV API | `http://192.168.72.20:8080` |
-| `VITE_FR_ROKU_HOST` | Family Room Roku API | `http://192.168.72.91:8080` |
-| `VITE_FR_RECEIVER_HOST` | Family Room Receiver API | `http://192.168.72.91:8081` |
+| `VITE_FR_ROKU_HOST` | Family Room Roku API | `http://192.168.72.222:8080` |
+| `VITE_FR_RECEIVER_HOST` | Family Room Receiver API | `http://192.168.72.222:8081` |
 | `VITE_MBR_TV_HOST` | Master Bedroom TV API | `http://192.168.72.25:8080` |
-| `VITE_MBR_ROKU_HOST` | Master Bedroom Roku API | `http://192.168.72.91:8080` |
+| `VITE_MBR_ROKU_HOST` | Master Bedroom Roku API | `http://192.168.72.222:8080` |
 
 ## Adding a New Room
 
