@@ -1,0 +1,15 @@
+// Ensure all interactive elements meet 48px touch target minimum
+.v-btn {
+  min-width: 48px !important;
+  min-height: 48px !important;
+}
+
+// Dark theme background for media remote use
+.v-application {
+  font-family: 'Roboto', sans-serif;
+}
+
+// Control sections spacing
+.control-section {
+  margin-bottom: 24px;
+}
