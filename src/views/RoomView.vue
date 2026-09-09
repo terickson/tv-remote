@@ -47,7 +47,6 @@
 </template>
 
 <script setup lang="ts">
-import { watch } from 'vue'
 import { rooms } from '@/config/rooms'
 import { useInputSwitcher } from '@/composables/useInputSwitcher'
 import { useVolumeControl } from '@/composables/useVolumeControl'
@@ -67,10 +66,4 @@ const room = rooms[props.roomId]
 const volumeCtrl = useVolumeControl(room)
 const { currentInput, changeInput, quickLaunch, rokuSystemPath } = useInputSwitcher(room, volumeCtrl.resetVolume)
 const tv = useTvControl(room.tvHost)
-
-watch(() => props.roomId, () => {
-  // Re-initialize when room changes - Vue will re-render with new props
-  currentInput.value = null
-  volumeCtrl.resetVolume()
-})
 </script>
