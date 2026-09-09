@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
 
-rsync -avz --exclude node_modules --exclude dist --exclude .git \
-  . pi@media-server:/usr/apps/tv-remote/
+git push
 
-ssh pi@media-server "cd /usr/apps/tv-remote && docker compose up -d --build"
+ssh apps.home "cd tv-remote && git pull && docker compose up -d --build"

@@ -47,7 +47,7 @@ docker compose up -d --build
 ### Remote deploy
 
 ```bash
-./deploy.sh  # rsync + docker compose on media-server
+./deploy.sh  # push, then git pull + docker compose redeploy on apps.home
 ```
 
 ### Reverse proxy (optional)
